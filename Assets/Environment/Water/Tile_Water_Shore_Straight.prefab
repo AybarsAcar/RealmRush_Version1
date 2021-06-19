@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25,23 +25,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192520, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -57,7 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1335990253851192521, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_Name
-      value: Tile_Water_Shore_Straight
+      value: (6, -2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335990254914297819, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
+      propertyPath: m_text
+      value: 6,-2
       objectReference: {fileID: 0}
     - target: {fileID: 1335990254914297819, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: m_Enabled
@@ -85,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: -2432090755550338912, guid: cdf72d6b092b7d74cbcba07dd2c5aa58, type: 3}
     - target: {fileID: 3813827499192789791, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}
       propertyPath: isPlaceable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b54df28c538d49b09ff700e4127e531, type: 3}

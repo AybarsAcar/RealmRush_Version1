@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
+using Pathfinding;
 using UnityEngine;
 using Utils;
 
@@ -12,39 +14,40 @@ using Utils;
 public class EnemyMover : MonoBehaviour
 {
   [SerializeField] [Range(0f, 5f)] private float speed = 0.5f;
-  [SerializeField] private List<Waypoint> _path = new List<Waypoint>();
+
+  private List<Node> _path = new List<Node>();
 
   private Enemy _enemy;
+  private GridManager _gridManager;
+  private Pathfinder _pathfinder;
 
   private void Awake()
   {
     _enemy = GetComponent<Enemy>();
+    _gridManager = FindObjectOfType<GridManager>();
+    _pathfinder = FindObjectOfType<Pathfinder>();
   }
 
   private void OnEnable()
   {
-    FindPath();
     ReturnToStart();
-    StartCoroutine(FollowPath());
+    RecalculatePath(true);
   }
 
-  void FindPath()
+  private void RecalculatePath(bool resetPath)
   {
+    var coordinate =
+      resetPath ? _pathfinder.StartCoordinate : _gridManager.GetCoordinatesFromPosition(transform.position);
+
+    StopAllCoroutines();
+
     // clear the existing path first
     // so it won't add the new path to our existing path
     _path.Clear();
 
-    var parent = GameObject.FindGameObjectWithTag(Tag.Path);
+    _path = _pathfinder.GetNewPath(coordinate);
 
-    foreach (Transform child in parent.transform)
-    {
-      var waypoint = child.GetComponent<Waypoint>();
-
-      if (waypoint != null)
-      {
-        _path.Add(child.GetComponent<Waypoint>());
-      }
-    }
+    StartCoroutine(FollowPath());
   }
 
   /**
@@ -52,19 +55,18 @@ public class EnemyMover : MonoBehaviour
    */
   void ReturnToStart()
   {
-    transform.position = _path[0].transform.position;
+    transform.position = _gridManager.GetPositionFromCoordinates(_pathfinder.StartCoordinate);
   }
 
   private IEnumerator FollowPath()
   {
-    foreach (var waypoint in _path)
+    for (int i = 1; i < _path.Count; i++)
     {
       var startPos = transform.position;
-      var endPos = waypoint.transform.position;
+      var endPos = _gridManager.GetPositionFromCoordinates(_path[i].coordinate); // next nodes position
+      float travelPercent = 0;
 
       transform.LookAt(endPos);
-
-      float travelPercent = 0;
 
       while (travelPercent < 1f)
       {
